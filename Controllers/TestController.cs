@@ -55,7 +55,6 @@ namespace AS2223_4G_INF_IngrassiaSamuele_API.Controllers
                 status = "KO";
                 message = $"Errore: {e}";
             }
-            
 
             return Json(new { res = res, status = status, message = message });;
         }
@@ -67,7 +66,7 @@ namespace AS2223_4G_INF_IngrassiaSamuele_API.Controllers
             string status = "OK";
             string message = "";
 
-            if (salary <= 0)
+            if (salary <= 0) //If the salary is below 0 skips everything
             {
                 taxes = 0;
                 status = "KO";
@@ -96,7 +95,6 @@ namespace AS2223_4G_INF_IngrassiaSamuele_API.Controllers
                     message = $"Errore: {e}";
                 }
             }
-
 
             return Json(new { res = taxes, status = status, message = message }); ;
         }
