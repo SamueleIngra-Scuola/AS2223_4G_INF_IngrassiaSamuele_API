@@ -13,7 +13,7 @@ namespace AS2223_4G_INF_IngrassiaSamuele_API.Controllers
         public JsonResult GetOddOrEven(int number)
         {
             string status = "OK";
-            string message;
+            string message = "";
 
             try
             {
@@ -33,6 +33,31 @@ namespace AS2223_4G_INF_IngrassiaSamuele_API.Controllers
             }
 
             return Json(new { status = status, message = message});
+        }
+
+        [HttpGet("GetFactorial")]
+        public JsonResult GetFactorial(int number)
+        {
+            int res = 1;
+            string status = "OK";
+            string message = "";
+
+            try
+            {
+                for (int i = 1; i <= number; i++)
+                {
+                    res *= i;
+                }
+            }
+            catch(Exception e)
+            {
+                res = 0;
+                status = "KO";
+                message = $"Errore: {e}";
+            }
+            
+
+            return Json(new { res = res, status = status, message = message });;
         }
     }
 }
